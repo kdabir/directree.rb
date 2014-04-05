@@ -194,13 +194,13 @@ describe Directree do
       it "should traverse every file" do
         files = []
         a.walk { |f| files << f.path }
-        files.should ==  ["a", "a/b", "a/b/c", "a/b/c/1.txt", "a/b/d", "a/b/2.txt"]
+        files.should match_array(["a", "a/b", "a/b/c", "a/b/c/1.txt", "a/b/d", "a/b/2.txt"])
       end
 
       it "should traverse every file and get its opts" do
         files = []
         a.walk { |f| files << f.opts }
-        files.should == [{}, {}, {:required=>true}, {}, {}, {:create=>false}]
+        files.should match_array( [{}, {}, {:required=>true}, {}, {}, {:create=>false}])
       end
     end
   end
@@ -232,7 +232,7 @@ describe Directree do
       }
       a.create
 
-      Dir["**/*/"].should == ["a/", "a/b/", "a/b/c/", "a/b/d/"] # for directories
+      Dir["**/*/"].should match_array(["a/", "a/b/", "a/b/c/", "a/b/d/"]) # for directories
       File.read("a/b/c/1.txt").should == "hello world"
       File.read("a/b/2.txt").should == ""
     end
