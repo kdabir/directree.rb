@@ -23,29 +23,32 @@ Or install it yourself as:
 
 ## Usage
 
-    require 'directree'
+```ruby
+require 'directree'
 
-    Directree.create("mygem") {
-        dir("lib")
-        dir("spec"){
-            file("spec_helper.rb") {
-                <<-EOF
-                RSpec.configure do |config|
-                    config.color_enabled = true
-                end
-                EOF
-            }
-        }
-        file("README.txt") {
-            "This is README of mygem"
+Directree.create("mygem") {
+    dir("lib")
+    dir("spec") {
+        file("spec_helper.rb") {
+            <<-EOF
+            RSpec.configure do |config|
+                config.color_enabled = true
+            end
+            EOF
         }
     }
+    file("README.txt") {
+        "This is README of mygem"
+    }
+}
+```
 
 That's it, Seriously !!
 
 Verify it:
 
     $ tree mygem
+    
     mygem
     |-- README.txt
     |-- lib
@@ -54,15 +57,15 @@ Verify it:
 
     2 directories, 2 files
 
-And check the file content
+And check the file content:
 
     $ cat mygem/spec/spec_helper.rb
+    
             RSpec.configure do |config|
                 config.color_enabled = true
             end
 
-
-See the [specs](tree/master/spec) for more details usage
+See the [specs](spec) for more details usage
 
 ## Contributing
 
