@@ -10,5 +10,7 @@ matrix:
     - rvm: jruby
     - rvm: rbx-19mode
 before_install:
+  - gem install bundler
   - gem update --system
   - gem --version
+  - bundle --version
