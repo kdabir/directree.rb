@@ -5,6 +5,7 @@ A simple DSL to create Directory Tree and Files with content.
 
 A [Directree](https://github.com/kdabir/directree) implementation powered by ruby.
 
+[![Build Status](https://travis-ci.org/kdabir/directree.rb.svg?branch=master)](https://travis-ci.org/kdabir/directree.rb)
 
 ## Installation
 
